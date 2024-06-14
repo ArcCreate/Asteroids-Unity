@@ -46,11 +46,25 @@ public class AsteroidLogic : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //splitting into smaller asteroids
+        /*
         if(this.size * 0.5f >= manager.minSize)
         {
             Split();
         }
-        Destroy(this.gameObject);
+        */
+        if(collision.gameObject.layer == 7)
+        {
+            if(this.gameObject.GetComponent<AsteroidLogic>().size > collision.gameObject.GetComponent<AsteroidLogic>().size)
+            {
+                Destroy(collision.gameObject);
+                Split();
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     //split into smaller asteroids
@@ -60,7 +74,6 @@ public class AsteroidLogic : MonoBehaviour
         pos += Random.insideUnitCircle * 2f;
         AsteroidLogic a1 = Instantiate(this, pos, this.transform.rotation);
         a1.size = this.size / 2.0f;
-        a1.speed = this.speed / 2.0f;
-        a1.Move(rb.velocity.normalized);
+        a1.Move(rb.velocity.normalized * speed/2);
     }
 }

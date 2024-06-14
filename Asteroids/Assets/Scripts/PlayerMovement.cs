@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     //refrences
     private Rigidbody2D rb;
+    public BulletScript bulletPrefab;
 
     private void Awake()
     {
@@ -37,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = 0.0f;
         }
+
+        //shooting
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
 
     //using for physics code
@@ -51,5 +58,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddTorque(moveDirection * turnSpeed);
         }
+    }
+
+    private void Shoot()
+    {
+        BulletScript bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
+        bullet.Fire(this.transform.up);
     }
 }

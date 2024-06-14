@@ -12,11 +12,13 @@ public class AsteroidLogic : MonoBehaviour
     //refrences
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
+    private AsteroidManager manager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = rb.GetComponent<SpriteRenderer>();
+        manager = FindAnyObjectByType<AsteroidManager>();
     }
 
     private void Start()
@@ -43,6 +45,22 @@ public class AsteroidLogic : MonoBehaviour
     //when it collides with something
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //splitting into smaller asteroids
+        if(this.size * 0.5f >= manager.minSize)
+        {
+            Split();
+        }
         Destroy(this.gameObject);
+    }
+
+    //split into smaller asteroids
+    private void Split()
+    {
+        Vector2 pos = this.transform.position;
+        pos += Random.insideUnitCircle * 2f;
+        AsteroidLogic a1 = Instantiate(this, pos, this.transform.rotation);
+        a1.size = this.size / 2.0f;
+        a1.speed = this.speed / 2.0f;
+        a1.Move(rb.velocity.normalized);
     }
 }

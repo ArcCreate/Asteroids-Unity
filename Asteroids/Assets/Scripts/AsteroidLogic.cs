@@ -37,6 +37,12 @@ public class AsteroidLogic : MonoBehaviour
         rb.AddForce(d * speed);
 
         //destroy after some time
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 10f);
+    }
+
+    //when it collides with something
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -533,7 +533,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0040289164, y: 0.001342982}
+  m_Offset: {x: 0.0009609163, y: 0.0038377494}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -544,7 +544,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0456614, y: 1.0241735}
+  m_Size: {x: 0.85106915, y: 0.8994348}
   m_EdgeRadius: 0
 --- !u!50 &1346057082
 Rigidbody2D:
@@ -689,8 +689,9 @@ MonoBehaviour:
   spawnEdge: 15
   trajectoryVariance: 15
   minSize: 0.5
-  maxSize: 2
+  maxSize: 1.5
   asteroidPrefab: {fileID: -8595116453287143209, guid: 4f376ac1713e75f498a5b0aa71c49cbb, type: 3}
+  explosion: {fileID: 8791717630859322645, guid: 4ae1b439ed9d8e94fba6be0ebd0ca95b, type: 3}
 --- !u!4 &1547214106
 Transform:
   m_ObjectHideFlags: 0

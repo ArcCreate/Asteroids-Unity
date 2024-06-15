@@ -54,11 +54,10 @@ public class AsteroidLogic : MonoBehaviour
         */
         if(collision.gameObject.layer == 7)
         {
-            if(this.gameObject.GetComponent<AsteroidLogic>().size > collision.gameObject.GetComponent<AsteroidLogic>().size)
+            if(this.gameObject.GetComponent<AsteroidLogic>().size/1.25 > collision.gameObject.GetComponent<AsteroidLogic>().size)
             {
                 Destroy(collision.gameObject);
-                Split();
-                Destroy(this.gameObject);
+                Move(rb.velocity);
             }
         }
         else

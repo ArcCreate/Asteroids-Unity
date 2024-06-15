@@ -14,6 +14,7 @@ public class AsteroidManager : MonoBehaviour
 
     //refrences
     public AsteroidLogic asteroidPrefab;
+    public ParticleSystem explosion;
 
     //spawn asteroids on a set timer
     private void Start()
@@ -37,5 +38,14 @@ public class AsteroidManager : MonoBehaviour
             astro.size = Random.Range(minSize, maxSize);
             astro.Move(rotation * -(dir - this.transform.position));
         }
+    }
+
+    //expolision
+    public void showExplosion(Vector2 pos)
+    {
+        ParticleSystem ps = Instantiate(explosion);
+        ps.transform.position = pos;
+        ps.Play();
+        Destroy(ps.gameObject, 2f);
     }
 }

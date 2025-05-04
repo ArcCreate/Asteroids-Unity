@@ -9,10 +9,17 @@ public class PlayerMovement : MonoBehaviour
     private float moveDirection;
     public float speed = 1.0f;
     public float turnSpeed = 1.0f;
+    public int maxHealth = 3;
+    private int currentHealth;
 
     //refrences
     private Rigidbody2D rb;
     public BulletScript bulletPrefab;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     private void Awake()
     {

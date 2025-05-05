@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 1346057082}
   - component: {fileID: 1346057081}
   - component: {fileID: 1346057085}
+  - component: {fileID: 1346057086}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -655,7 +656,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   turnSpeed: 1
+  maxHealth: 3
   bulletPrefab: {fileID: -2767831262695129227, guid: 2d2e4b0cc9b743b4e974e4d729eb0ffd, type: 3}
+--- !u!114 &1346057086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346057080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9de7fd986c22c1459a7617f1fbc7eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 5
+  isInvincible: 0
+  invincibilityDuration: 2
+  blinkInterval: 0
 --- !u!1 &1547214104
 GameObject:
   m_ObjectHideFlags: 0
